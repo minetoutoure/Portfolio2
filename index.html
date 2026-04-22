@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color:#58635c;
+      color: #1a1a2e;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+ 
+    a { text-decoration: none; color: inherit; }
+ 
+    /* NAV */
+    nav {
+      background: #aaebc4;
+      padding: 14px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 0.5px solid #dde1ea;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+ 
+    .logo {
+      background: #257462;
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+ 
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+    }
+ 
+    nav ul li a {
+      font-size: 14px;
+      color: #100404;
+    }
+ 
+    nav ul li a:hover { color: #2a52be; }
+ 
+    /* SECTIONS GÉNÉRALES */
+    section { padding: 64px 48px; }
+ 
+    .section-tag {
+      display: inline-block;
+      background: #e8f7f8;
+      color: #2a52be;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+ 
+    /* HERO */
+    #accueil {
+      background: #daf0e5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      border-radius: 18px;
+      margin: 24px 24px 0;
+      padding: 48px 56px;
+    }
+ 
+    .hero-text { max-width: 520px; }
+ 
+    .hero-text h1 {
+      font-size: 36px;
+      font-weight: 800;
+      color: #1a1e3c;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+ 
+    .hero-text p {
+      color: #555;
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+ 
+    .btn-group { display: flex; gap: 14px; flex-wrap: wrap; }
+ 
+    .btn-primary {
+      background: #2a52be;
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+ 
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #2a52be;
+      color: #2a52be;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+ 
+    .hero-stats {
+      display: flex;
+      gap: 24px;
+      margin-top: 32px;
+    }
+ 
+    .stat { text-align: left; }
+    .stat .val { font-size: 20px; font-weight: 700; color: #2a52be; }
+    .stat .lbl { font-size: 11px; color: #888; }
+ 
+    /* Photo placeholder */
+    .hero-photo {
+      width: 260px;
+      min-width: 220px;
+      height: 300px;
+      border-radius: 16px;
+      background: #e8edf8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #aaa;
+      font-size: 13px;
+      border: 0.5px solid ;
+      flex-shrink: 0;
+      position: relative;
+      background-image: url(moi.jpeg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+ 
+    .hero-photo .creativity-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 6px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #2a52be;
+      border: 0.5px solid #dde1ea;
+    }
+ 
+    /* SECTION TITLES */
+    .section-title-wrap {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+ 
+    .section-title-wrap h2 {
+      display: inline-block;
+      background: #aaebc4;
+      border: 0.5px solid #dde1ea;
+      padding: 10px 32px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #1a1e3c;
+    }
+ 
+    /* À PROPOS */
+    #apropos {
+      background: #58635c;;
+    }
+ 
+    .cards-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+ 
+    .card {
+      background: #daf0e5;
+      border-radius: 14px;
+      padding: 24px 28px;
+      border: 0.5px solid #dde1ea;
+    }
+ 
+    .card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #2a52be;
+      margin-bottom: 10px;
+    }
+ 
+    .card p {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.65;
+    }
+ 
+    /* PROJETS */
+    #projets {
+      background: #daf0e5;
+      border-radius: 18px;
+      margin: 0 24px;
+    }
+ 
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+ 
+    .project-card {
+      background: #fff;
+      border-radius: 14px;
+      border: 0.5px solid #dde1ea;
+      overflow: hidden;
+    }
+ 
+    .project-img {
+      width: 100%;
+      height: 140px;
+      background: #d8e2f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #aaa;
+      font-size: 12px;
+    }
+
+    .project-info { padding: 16px; }
+    .project-info h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #2a52be;
+      margin-bottom: 6px;
+    }
+    .project-info p {
+      font-size: 12px;
+      color: #090909;
+      line-height: 1.55;
+    }
+ 
+    /* PROFIL */
+    #profil {
+      background: #58635c;
+    }
+ 
+    .profil-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+ 
+    .profil-stat {
+      background: #fff;
+      border-radius: 14px;
+      padding: 24px 20px;
+      border: 0.5px solid #dde1ea;
+      text-align: center;
+    }
+ 
+    .profil-stat .val {
+      font-size: 28px;
+      font-weight: 800;
+      color: #2a52be;
+    }
+ 
+    .profil-stat .lbl {
+      font-size: 12px;
+      color: #888;
+      margin-top: 6px;
+    }
+ 
+    /* CONTACT */
+    #contact {
+      background: #50897b;
+      margin: 0 24px 32px;
+      border-radius: 18px;
+      text-align: center;
+      padding: 56px 48px;
+    }
+ 
+    #contact h2 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+ 
+    #contact p {
+      color: #c5d2f5;
+      font-size: 14px;
+      max-width: 520px;
+      margin: 0 auto 32px;
+    }
+ 
+    #contact .btn-group {
+      justify-content: center;
+    }
+ 
+    .btn-white {
+      background: #fff;
+      color: #2a52be;
+      border: none;
+      padding: 11px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+ 
+    .btn-white-outline {
+      background: transparent;
+      border: 1.5px solid #fff;
+      color: #fff;
+      padding: 11px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+ 
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #aaa;
+    }
+ 
+    /* Responsive */
+    @media (max-width: 768px) {
+      section { padding: 40px 20px; }
+      #accueil { flex-direction: column; margin: 12px 12px 0; padding: 32px 24px; }
+      .hero-photo { width: 100%; min-width: unset; height: 200px; }
+      .cards-grid-2 { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .profil-stats { grid-template-columns: repeat(2, 1fr); }
+      nav { padding: 14px 20px; }
+      nav ul { gap: 16px; }
+      #contact { margin: 0 12px 20px; padding: 36px 24px; }
+      #projets { margin: 0 12px; } }
+
+     
+    </style>
+</head>
+<body>
+      <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">MT</div>
+    <ul>
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#profil">Profil</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="accueil">
+    <div class="hero-text">
+      <span class="section-tag">Portfolio moderne &amp; évolutif</span>
+      <h1>Construire mon parcours avec passion, créativité et ambition</h1>
+      <p>
+        Bonjour,je suis Minetou Toure, étudiante passionnée par le numérique,
+        l'apprentissage et la création d'interfaces modernes. Je développe
+        progressivement mon univers académique et personnel à travers des
+        projets concrets, simples et soignés.
+      </p>
+      <div class="btn-group">
+        <button class="btn-primary">Voir mes projets</button>
+        <button class="btn-outline">Me contacter</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="val">5+</div>
+          <div class="lbl">Projets réalisés</div>
+        </div>
+        <div class="stat">
+          <div class="val">100%</div>
+          <div class="lbl">Motivation &amp; progression</div>
+        </div>
+        <div class="stat">
+          <div class="val">UI</div>
+          <div class="lbl">Design &amp; web moderne</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-photo">
+      <div class="creativity-badge">Créativité</div>
+      <!-- Image à insérer ici -->
+      <span></span>
+    </div>
+  </section>
+
+  <!-- À PROPOS -->
+  <section id="apropos">
+    <div class="section-title-wrap">
+      <h2>À propos de moi</h2>
+    </div>
+    <div class="cards-grid-2">
+      <div class="card">
+        <h3>Mon parcours</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius magni laboriosam dolorem saepe magnam quia nam
+          animi ducimus accusantium id. Voluptates perferendis ad sapiente esse porro error dignissimos, praesentium
+          illo?
+        </p>
+      </div>
+      <div class="card">
+        <h3>Mes objectifs</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem expedita, voluptatibus dolorum
+          eligendi ullam voluptas consequuntur? Et, veniam! Consectetur possimus deserunt enim quasi non commodi tenetur
+          placeat distinctio dolorem! Sed!
+        </p>
+      </div>
+      <div class="card">
+        <h3>Mes qualités</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio inventore, vitae itaque repellendus maxime
+          atque. Exercitationem asperiores consequatur quidem amet assumenda. At cumque omnis adipisci quos quisquam
+          illo dolorem distinctio?
+        </p>
+      </div>
+      <div class="card">
+        <h3>Ce que je recherche</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, vero inventore. Rerum nobis sapiente, libero
+          repudiandae vitae aliquid, nesciunt molestias, eius quam beatae perspiciatis dignissimos ipsam et! Est,
+          placeat voluptas?
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETS -->
+  <section id="projets">
+    <div class="section-title-wrap">
+      <h2>Mes projets</h2>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-img p1"><img src="1.jpg" width="100%" height="150px" alt=""></div>
+        <div class="project-info">
+          <h4>Mini site vitrine</h4>
+          <p>Réalisation d'un site simple, responsive et élégant pour présenter une activité, un service ou une identité
+            personnelle.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img p2"> <img src="2.jpg" width="100%" height="150px" alt=""></div>
+        <div class="project-info">
+          <h4>Interface web</h4>
+          <p>Conception d'une interface claire avec sections bien organisées, navigation intuitive et design moderne.
+          </p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img p3"> <img src="3.jpg" width="100%" height="150px" alt=""></div>
+        <div class="project-info">
+          <h4>Projet JavaScript</h4>
+          <p>Mise en pratique de la logique interactive, de la manipulation du DOM et de fonctionnalités dynamiques
+            utiles.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img p4"> <img src="4.jpg" width="100%" height="150px" alt=""></div>
+        <div class="project-info">
+          <h4>Travail en groupe</h4>
+          <p>Participation à des exercices collaboratifs pour améliorer l'organisation, la communication et le rendu
+            final.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img p5"> <img src="5.jpg" width="100%" height="150px" alt=""></div>
+        <div class="project-info">
+          <h4>Présentation académique</h4>
+          <p>Création de supports visuels structurés pour exposer un sujet de façon claire, cohérente et
+            professionnelle.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img p6"> <img src="6.jpg" width="100%" height="150px" alt=""></div>
+        <div class="project-info">
+          <h4>Apprentissage continu</h4>
+          <p>Exploration régulière de nouvelles méthodes, outils et bonnes pratiques pour améliorer mes réalisations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFIL -->
+  <section id="profil">
+    <div class="section-title-wrap">
+      <h2>Mon profil</h2>
+    </div>
+    <div class="profil-stats">
+      <div class="profil-stat">
+        <div class="val">2026</div>
+        <div class="lbl">Année de progression et de consolidation</div>
+      </div>
+      <div class="profil-stat">
+        <div class="val">5+</div>
+        <div class="lbl">Projets d'apprentissage réalisés</div>
+      </div>
+      <div class="profil-stat">
+        <div class="val">100%</div>
+        <div class="lbl">Motivation pour apprendre et évoluer</div>
+      </div>
+      <div class="profil-stat">
+        <div class="val">UI</div>
+        <div class="lbl">Intérêt pour le web et le design visuel</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p style="color: #090909;">
+      Je suis ouverte aux échanges, aux opportunités d'apprentissage et aux projets académiques
+      ou personnels. N'hésitez pas à me contacter pour discuter, collaborer ou simplement
+      découvrir mon univers.
+    </p>
+    <div class="btn-group">
+      <button class="btn-white">Envoyer un email</button>
+      <button class="btn-white-outline" style="background-color:  #daf0e5;color: #090909;">Télécharger mon CV</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background-color:  #daf0e5;color: #090909;">
+    © 2026 Minty Baby — Portfolio étudiant / personnel
+  </footer>
+
+</body>
+</html>
